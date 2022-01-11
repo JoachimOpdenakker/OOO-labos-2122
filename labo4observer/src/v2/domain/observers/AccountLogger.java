@@ -13,9 +13,9 @@ public class AccountLogger implements Observer {
     @Override
     public void update(BankEvent event) {
         switch (event) {
-            case ADD_ACCOUNT -> logAccount();
-            case DEPOSIT -> logDeposit();
-            case WITHDRAWAL -> logWithdrawal();
+            case ADD_ACCOUNT : logAccount();
+            case DEPOSIT : logDeposit();
+            case WITHDRAWAL : logWithdrawal();
         }
     }
 
