@@ -13,27 +13,25 @@ public class UI {
 	}
 
 	public void showMenu() {
-		String menu = """
-				1. Add product
-				2. Show product
-				3. Show rental price
-				4. All products
-				5. Manage product
-
-				0. Quit""";
+		String menu = "1. Add product\n"
+				+ "2. Show product\n"
+				+ "3. Show rental price\n"
+				+ "4. All products\n"
+				+ "5. Manage product\n"
+				+ "0. Quit\n";
 		String  choice = "";
 		while (!choice.equals("0")) {
 			choice = JOptionPane.showInputDialog(menu);
-			if (choice == null || choice.isBlank()) {
+			if (choice == null || choice.isEmpty()) {
 				break;
 			} else {
 				switch (choice) {
-					case "1" -> addProduct();
-					case "2" -> showProduct();
-					case "3" -> showPrice();
-					case "4" -> showAllProducts();
-					case "5" -> manageProduct();
-					default -> menu = "Invalid option!\n" + menu;
+					case "1": addProduct();
+					case "2": showProduct();
+					case "3": showPrice();
+					case "4": showAllProducts();
+					case "5": manageProduct();
+					default: menu = "Invalid option!\n" + menu;
 				}
 			}
 		}
@@ -59,11 +57,10 @@ public class UI {
 
 	public void addProduct() {
 		String title = JOptionPane.showInputDialog("Enter the title:");
-		String type = JOptionPane.showInputDialog("""
-				Enter the type:
-				C - CD
-				G - Game
-				M - Movie""");
+		String type = JOptionPane.showInputDialog("Enter the type:\n"
+				+"C - CD\n"
+				+"G - Game\n"
+				+"M - Movie\n");
 
 		try {
 			shop.addProduct(type, title);
@@ -103,23 +100,21 @@ public class UI {
 		String idString = getID();
 		if (productExists(idString)) {
 			int id = Integer.parseInt(idString);
-			String choice = JOptionPane.showInputDialog(shop.getProductByID(id) + """
-				
-				
-				Options:
-				1. Rent
-				2. Set available
-				3. Set damaged
-				4. Fix damage
-				5. Remove product""");
+			String choice = JOptionPane.showInputDialog(shop.getProductByID(id) +
+					"Options:"
+					+"1. Rent"
+					+"2. Set available"
+					+"3. Set damaged"
+					+"4. Fix damage"
+					+"5. Remove product");
 
 			try {
 				switch (choice) {
-					case "1" -> setRented(id);
-					case "2" -> setAvailable(id);
-					case "3" -> setDamaged(id);
-					case "4" -> fixDamage(id);
-					case "5" -> remove(id);
+					case "1" : setRented(id);
+					case "2" : setAvailable(id);
+					case "3" : setDamaged(id);
+					case "4" : fixDamage(id);
+					case "5" : remove(id);
 				}
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());

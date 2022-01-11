@@ -33,10 +33,10 @@ public abstract class Product {
 
     public void setState(String state) {
         switch (state) {
-            case "Rented" -> context.setProductState(new RentedState());
-            case "Available" -> context.setProductState(new AvailableState());
-            case "Damaged" -> context.setProductState(new DamagedState());
-            case "Removed" -> context.setProductState(new RemovedState());
+            case "Rented": context.setProductState(new RentedState());
+            case "Available": context.setProductState(new AvailableState());
+            case "Damaged": context.setProductState(new DamagedState());
+            case "Removed": context.setProductState(new RemovedState());
         }
     }
 

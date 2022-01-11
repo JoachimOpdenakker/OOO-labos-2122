@@ -20,13 +20,13 @@ public class ProductDB {
     }
 
     public void addProduct(String type, String title) throws IllegalArgumentException {
-        if (type == null || type.isBlank()) throw new IllegalArgumentException("Invalid type!");
+        if (type == null || type.isEmpty()) throw new IllegalArgumentException("Invalid type!");
         int newID = products.size()+1;
         switch (type) {
-            case "M" -> products.add(new Movie(newID, title));
-            case "G" -> products.add(new Game(newID, title));
-            case "C" -> products.add(new CD(newID, title));
-            default -> throw new IllegalArgumentException("Invalid type!");
+            case "M": products.add(new Movie(newID, title));
+            case "G": products.add(new Game(newID, title));
+            case "C": products.add(new CD(newID, title));
+            default: throw new IllegalArgumentException("Invalid type!");
         }
     }
 
